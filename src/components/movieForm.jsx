@@ -1,35 +1,49 @@
-// import React from "react";
-// import Joi from "joi-browser";
-// import Form from "./common/form";
-// import { saveMovie, getMovie } from "../services/movieService";
-// import { getGenres } from "../services/genreService";
+import React from 'react';
+
+const MovieForm = ({ match, history }) => {
+  return (
+    <div>
+      <h1>Movie Form {match.params.id} </h1>
+      <button
+        className='btn btn-primary'
+        onClick={() => history.push('/movies')}
+      >
+        Save
+      </button>
+    </div>
+  );
+};
+
+export default MovieForm;
+
+// import React from 'react';
+// import Joi from 'joi-browser';
+// import Form from './common/form';
+// import { saveMovie, getMovie } from '../services/movieService';
+// import { getGenres } from '../services/genreService';
 
 // class MovieForm extends Form {
 //   state = {
-//     data: { title: "", genreId: "", numberInStock: "", dailyRentalRate: "" },
+//     data: { title: '', genreId: '', numberInStock: '', dailyRentalRate: '' },
 //     genres: [],
-//     errors: {}
+//     errors: {},
 //   };
 
 //   schema = {
 //     _id: Joi.string(),
-//     title: Joi.string()
-//       .required()
-//       .label("Title"),
-//     genreId: Joi.string()
-//       .required()
-//       .label("Genre"),
+//     title: Joi.string().required().label('Title'),
+//     genreId: Joi.string().required().label('Genre'),
 //     numberInStock: Joi.number()
 //       .integer()
 //       .required()
 //       .min(0)
 //       .max(100)
-//       .label("Number In Stock"),
+//       .label('Number In Stock'),
 //     dailyRentalRate: Joi.number()
 //       .required()
 //       .min(0)
 //       .max(10)
-//       .label("Daily Rental Rate")
+//       .label('Daily Rental Rate'),
 //   };
 
 //   async populateGenres() {
@@ -40,12 +54,12 @@
 //   async populateMovie() {
 //     try {
 //       const movieId = this.props.match.params.id;
-//       if (movieId === "new") return;
+//       if (movieId === 'new') return;
 //       const { data: movie } = await getMovie(movieId);
 //       this.setState({ data: this.mapToViewModel(movie) });
 //     } catch (ex) {
 //       if (ex.response && ex.response.status === 404)
-//         this.props.history.replace("/not-found");
+//         this.props.history.replace('/not-found');
 //     }
 //   }
 
@@ -60,18 +74,18 @@
 //       title: movieInDb.title,
 //       genreId: movieInDb.genre._id,
 //       numberInStock: movieInDb.numberInStock,
-//       dailyRentalRate: movieInDb.dailyRentalRate
+//       dailyRentalRate: movieInDb.dailyRentalRate,
 //     };
 //   }
 
 //   doSubmit = async () => {
 //     const movieId = this.props.match.params.id;
 //     const movie = { ...this.state.data };
-//     if (movieId !== "new") {
-//       movie["_id"] = movieId;
+//     if (movieId !== 'new') {
+//       movie['_id'] = movieId;
 //     }
 //     await saveMovie(movie);
-//     this.props.history.push("/movies");
+//     this.props.history.push('/movies');
 //   };
 
 //   render() {
@@ -79,11 +93,11 @@
 //       <div>
 //         <h1>Movie Form</h1>
 //         <form onSubmit={this.handleSubmit}>
-//           {this.renderInput("title", "Title")}
-//           {this.renderSelect("genreId", "Genre", this.state.genres)}
-//           {this.renderInput("numberInStock", "Number in Stock")}
-//           {this.renderInput("dailyRentalRate", "Rate")}
-//           {this.renderButton("Save")}
+//           {this.renderInput('title', 'Title')}
+//           {this.renderSelect('genreId', 'Genre', this.state.genres)}
+//           {this.renderInput('numberInStock', 'Number in Stock')}
+//           {this.renderInput('dailyRentalRate', 'Rate')}
+//           {this.renderButton('Save')}
 //         </form>
 //       </div>
 //     );
