@@ -5,12 +5,12 @@ import React, { Component } from 'react';
 // sortColumn: object
 // onSort: function
 
-class tableHeader extends Component {
+class TableHeader extends Component {
   raiseSort = (path) => {
     const sortColumn = { ...this.props.sortColumn };
-    if (sortColumn.path === path)
+    if (sortColumn.path === path) {
       sortColumn.order = sortColumn.order === 'asc' ? 'desc' : 'asc';
-    else {
+    } else {
       sortColumn.path = path;
       sortColumn.order = 'asc';
     }
@@ -20,7 +20,7 @@ class tableHeader extends Component {
   renderSortIcon = (column) => {
     const { sortColumn } = this.props;
     if (column.path !== sortColumn.path) return null;
-    if (sortColumn.order === 'asc') return <i className='fa fa-sort-asc'></i>;
+    if (sortColumn.order === 'asc') return <i className='fa fa-sort-asc' />;
     return <i className='fa fa-sort-desc' />;
   };
 
@@ -43,4 +43,4 @@ class tableHeader extends Component {
   }
 }
 
-export default tableHeader;
+export default TableHeader;
