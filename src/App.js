@@ -19,8 +19,8 @@ import Customers from './components/customers';
 import Rentals from './components/rentals';
 import NotFound from './components/notFound';
 import NavBar from './components/navBar';
-import './App.css';
 import LoginForm from './components/loginForm';
+import './App.css';
 
 class App extends Component {
   render() {
